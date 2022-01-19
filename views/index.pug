@@ -1,5 +1,4 @@
 extends layout
-
 block content
 
       // Intro
@@ -21,15 +20,22 @@ block content
             img(src='images/pic01.jpg' alt='' data-position='center center')
           .content
             .inner
-              h2 Sed ipsum dolor
-              p
-                | Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.
-              ul.actions
-                li
-                  if (code == '') 
-                    a.button(href='/connexion') Postuler
-                  else 
-                    a.button(href='/connexion') Postuler
+                table.table
+                            thead
+                                tbody
+                                    each offre in figuration
+                                        tr
+                                            td= offre.eventName
+                                            td= offre.description
+                                            td= offre.roleDemande
+                                            td= offre.nbFigurantDemande
+                                            td= offre.nbCandidatPostule
+                ul.actions
+                    li
+                    if (code == '') 
+                        a.button(href='/connexion') Voir les offres
+                    else 
+                        a.button(href='/liste') Voir les offres
         section
           a.image(href='#')
             img(src='images/pic02.jpg' alt='' data-position='top center')
@@ -120,3 +126,4 @@ block content
             li
               | Design: 
               a(href='http://html5up.net') HTML5 UP
+    

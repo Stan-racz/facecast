@@ -1,11 +1,12 @@
 const express = require('express');
 let router = express.Router();
+const offres = require("../models/offres");
 const { check, validationResult } = require("express-validator");
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-    res.render('index', { title: 'FaceCast' });
-});
+// router.get('/', function(req, res, next) {
+//     res.render('index', { title: 'FaceCast' });
+// });
 
 
 
@@ -41,4 +42,19 @@ router.get('/deconnexion', function(req, res, next) {
     res.redirect("/");
 });
 
+/* GET home page. */
+router.get('/', function (req, res, next) {
+    offres.find({}, function (err, result) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.render("index", { title: "FaceCast", figuration: result });
+        }
+    });
+});
+
+//méthode de réservation d'offre
+router.post("/postuler", function (req, res, next) {
+
+});
 module.exports = router;

@@ -1,0 +1,65 @@
+doctype html
+//
+    Hyperspace by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+html
+    head
+        title FaceCast
+        meta(charset='utf-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1, user-scalable=no')
+        link(rel='stylesheet' href='assets/css/main.css')
+        noscript
+            link(rel='stylesheet' href='assets/css/noscript.css')
+    body.is-preload
+        // Header
+        header#header
+            a.title(href="/") FaceCast
+            nav
+                ul
+                    li
+                        a(href='/') Accueil
+                    //- li
+                    //-     a.active(href='/#offre') Offres
+                    //- li
+                    //-     a(href='elements.html') Elements
+                    
+        section.section
+            div.container
+                    p Liste des offres de figuration disponibles :   
+                    table.table
+                        thead
+                            tr
+                                th Titre
+                                th Description
+                                th Role demandé
+                                th nombre figurant demandé
+                                th nombre candadidat ayant postulé
+                                th bouton
+                            tbody
+                                each offre in figuration
+                                    tr
+                                        td= offre.eventName
+                                        td= offre.description
+                                        td= offre.roleDemande
+                                        td= offre.nbFigurantDemande
+                                        td= offre.nbCandidatPostule
+                                        td
+                                            form(action="/postuler" method="post")  
+                                                input(type="submit" value="Postuler")
+        // Footer
+        footer#footer.wrapper.alt
+            .inner
+                ul.menu
+                    li HPR Inc. All rights reserved.
+                    li
+                        | Design: 
+                        a(href='http://html5up.net') HTML5 UP
+        // Scripts
+        script(src='assets/js/jquery.min.js')
+        script(src='assets/js/jquery.scrollex.min.js')
+        script(src='assets/js/jquery.scrolly.min.js')
+        script(src='assets/js/browser.min.js')
+        script(src='assets/js/breakpoints.min.js')
+        script(src='assets/js/util.js')
+        script(src='assets/js/main.js')
