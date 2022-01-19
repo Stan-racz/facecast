@@ -1,0 +1,16 @@
+extends layout
+
+block content
+      section#connexion.wrapper.style1.fullscreen.fade-up
+        .inner
+          h1 Connexion
+          form(action='/connexion' method='post')
+            div.field
+              label.label Votre code d'identification
+              div.control
+                input(class='input' type='text' name='code' placeholder='Entrez votre code')
+                p(class='help is-danger')= message
+            div(class='field is-grouped')
+              div.control
+                input(type='submit' value='S\'enregistrer' class='button is-link')
+      

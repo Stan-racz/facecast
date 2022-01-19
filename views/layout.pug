@@ -1,17 +1,47 @@
 doctype html
+//
+  Hyperspace by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 html
   head
-    title= title
-    link(rel='stylesheet', href='/assets/css/main.css')
-  body
-    nav(class='navbar is-transparent')
-      div.navbar-brand
-        span(style='font-weight:bold; font-size:x-large') &nbsp;FaceCact
+    title FaceCast
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, user-scalable=no')
+    link(rel='stylesheet' href='assets/css/main.css')
+    noscript
+      link(rel='stylesheet' href='assets/css/noscript.css')
+  body.is-preload
+  
+    // Sidebar
+    section#sidebar
+      .inner
+        nav
+          ul
+            if (code == '') 
+              li
+                a(href='#connexion') Connexion
+            else
+              li
+                p= code
+              li
+                a(href='#deconnexion') Déconnexion
+            li
+              a(href='#acceuil') Acceuil
+            li
+              a(href='#offres') Les offres 
+            li
+              a(href='#candidatures') Tes candidatures
+            
+    // Wrapper
+    #wrapper
+      block content 
 
-      if (code != '') 
-        div.navbar-item
-          p= code
-        div.navbar-item
-          a(class="navbar-item" href="/deconnexion") Déconnexion 
-  hr
-  block content
+    // Scripts
+    script(src='assets/js/jquery.min.js')
+    script(src='assets/js/jquery.scrollex.min.js')
+    script(src='assets/js/jquery.scrolly.min.js')
+    script(src='assets/js/browser.min.js')
+    script(src='assets/js/breakpoints.min.js')
+    script(src='assets/js/util.js')
+    script(src='assets/js/main.js')

@@ -7,11 +7,11 @@ router.get('/', function(req, res, next) {
     res.render('index', { title: 'FaceCast' });
 });
 
-module.exports = router;
+
 
 router.post(
-    "/identification", [
-        // Le pseudo doit avoir au moins 6 caractères
+    "/connexion", [
+        // Le code doit avoir au moins 2 caractères
         check("code").isLength({ min: 2 }),
     ],
     function(req, res) {
@@ -24,6 +24,7 @@ router.post(
                 code: code,
                 message: "Code invalide "
             });
+            // console.log(code);
         } else {
             // Redirection vers index
             // console.log("Code :" + code);
@@ -32,8 +33,12 @@ router.post(
     }
 );
 
+
+
 // Méthode pour la déconnexion
 router.get('/deconnexion', function(req, res, next) {
     code = "";
     res.redirect("/");
 });
+
+module.exports = router;
