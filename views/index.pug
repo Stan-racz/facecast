@@ -1,30 +1,7 @@
-doctype html
-//
-  Hyperspace by HTML5 UP
-  html5up.net | @ajlkn
-  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-html
-  head
-    title FaceCast
-    meta(charset='utf-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1, user-scalable=no')
-    link(rel='stylesheet' href='assets/css/main.css')
-    noscript
-      link(rel='stylesheet' href='assets/css/noscript.css')
-  body.is-preload
-    // Sidebar
-    section#sidebar
-      .inner
-        nav
-          ul
-            li
-              a(href='#acceuil') Acceuil
-            li
-              a(href='#offres') Les offres 
-            li
-              a(href='#candidatures') Tes candidatures
-    // Wrapper
-    #wrapper
+extends layout
+
+block content
+
       // Intro
       section#acceuil.wrapper.style1.fullscreen.fade-up
         .inner
@@ -49,7 +26,10 @@ html
                 | Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.
               ul.actions
                 li
-                  a.button(href='generic.html') Learn more
+                  if (code == '') 
+                    a.button(href='/connexion') Postuler
+                  else 
+                    a.button(href='/connexion') Postuler
         section
           a.image(href='#')
             img(src='images/pic02.jpg' alt='' data-position='top center')
@@ -112,19 +92,31 @@ html
           ul.actions
             li
               a.button(href='generic.html') Learn more
-    // Footer
-    footer#footer.wrapper.style1-alt
-      .inner
-        ul.menu
-          li © Untitled. All rights reserved.
-          li
-            | Design: 
-            a(href='http://html5up.net') HTML5 UP
-    // Scripts
-    script(src='assets/js/jquery.min.js')
-    script(src='assets/js/jquery.scrollex.min.js')
-    script(src='assets/js/jquery.scrolly.min.js')
-    script(src='assets/js/browser.min.js')
-    script(src='assets/js/breakpoints.min.js')
-    script(src='assets/js/util.js')
-    script(src='assets/js/main.js')
+
+      
+      // Three
+      if (code == '')
+        section#connexion.wrapper.style2.spotlights
+          .inner
+              h1 Connexion
+              form(action='/connexion' method='post')
+                div.field
+                  label.label Votre code d'identification
+                  div.control
+                    input(class='input' type='text' name='code' placeholder='Entrez votre code')
+                    p(class='help is-danger')= message
+                div(class='field is-grouped')
+                  div.control
+                    input(type='submit' value='S\'enregistrer' class='button is-link')
+      else 
+        section#deconnexion.wrapper.style2.spotlights
+          .inner
+            a.button(href='/deconnexion') Déconnexion
+      // Footer
+      footer#footer.wrapper.style1-alt
+        .inner
+          ul.menu
+            li © Untitled. All rights reserved.
+            li
+              | Design: 
+              a(href='http://html5up.net') HTML5 UP
