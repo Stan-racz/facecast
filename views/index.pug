@@ -1,5 +1,130 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+doctype html
+//
+  Hyperspace by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+html
+  head
+    title FaceCast
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, user-scalable=no')
+    link(rel='stylesheet' href='assets/css/main.css')
+    noscript
+      link(rel='stylesheet' href='assets/css/noscript.css')
+  body.is-preload
+    // Sidebar
+    section#sidebar
+      .inner
+        nav
+          ul
+            li
+              a(href='#acceuil') Acceuil
+            li
+              a(href='#offres') Les offres 
+            li
+              a(href='#candidatures') Tes candidatures
+    // Wrapper
+    #wrapper
+      // Intro
+      section#acceuil.wrapper.style1.fullscreen.fade-up
+        .inner
+          h1 FaceCast
+          p
+            | La nouvelle plateforme te permettant  
+            br
+            | de postuler aux offres de FaceCast 
+            | .
+          ul.actions
+            li
+              a.button.scrolly(href='#offres') Voir les offres
+      // One
+      section#offres.wrapper.style2.spotlights
+        section
+          a.image(href='#')
+            img(src='images/pic01.jpg' alt='' data-position='center center')
+          .content
+            .inner
+              h2 Sed ipsum dolor
+              p
+                | Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.
+              ul.actions
+                li
+                  a.button(href='generic.html') Learn more
+        section
+          a.image(href='#')
+            img(src='images/pic02.jpg' alt='' data-position='top center')
+          .content
+            .inner
+              h2 Feugiat consequat
+              p
+                | Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.
+              ul.actions
+                li
+                  a.button(href='generic.html') Learn more
+        section
+          a.image(href='#')
+            img(src='images/pic03.jpg' alt='' data-position='25% 25%')
+          .content
+            .inner
+              h2 Ultricies aliquam
+              p
+                | Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.
+              ul.actions
+                li
+                  a.button(href='generic.html') Learn more
+      // Two
+      section#candidatures.wrapper.style3.fade-up
+        .inner
+          h2 Tes candidatures
+          p
+            | Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.
+          .features
+            section
+              span.icon.solid.major.fa-code
+              h3 Lorem ipsum amet
+              p
+                | Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.
+            section
+              span.icon.solid.major.fa-lock
+              h3 Aliquam sed nullam
+              p
+                | Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.
+            section
+              span.icon.solid.major.fa-cog
+              h3 Sed erat ullam corper
+              p
+                | Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.
+            section
+              span.icon.solid.major.fa-desktop
+              h3 Veroeros quis lorem
+              p
+                | Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.
+            section
+              span.icon.solid.major.fa-link
+              h3 Urna quis bibendum
+              p
+                | Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.
+            section
+              span.icon.major.fa-gem
+              h3 Aliquam urna dapibus
+              p
+                | Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.
+          ul.actions
+            li
+              a.button(href='generic.html') Learn more
+    // Footer
+    footer#footer.wrapper.style1-alt
+      .inner
+        ul.menu
+          li © Untitled. All rights reserved.
+          li
+            | Design: 
+            a(href='http://html5up.net') HTML5 UP
+    // Scripts
+    script(src='assets/js/jquery.min.js')
+    script(src='assets/js/jquery.scrollex.min.js')
+    script(src='assets/js/jquery.scrolly.min.js')
+    script(src='assets/js/browser.min.js')
+    script(src='assets/js/breakpoints.min.js')
+    script(src='assets/js/util.js')
+    script(src='assets/js/main.js')
