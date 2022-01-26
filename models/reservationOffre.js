@@ -5,6 +5,10 @@ const Schema = mongoose.Schema;
 let ReservationOffre = new Schema({
     id:String,
     postulantId:String,
+    eventName: String,
+    eventType: String,
+    roleDemande: String,
+    description:String,
     idOffre:String,
     idEvenement:String,
 });

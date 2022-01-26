@@ -33,19 +33,28 @@ html
                                 th Titre
                                 th Description
                                 th Role demandé
-                                th nombre figurant demandé
-                                th nombre candadidat ayant postulé
-                                th bouton
+                                th Nombre figurant demandé
+                                th Nombre candadidat ayant postulé
+
                             tbody
+                                input(type="text", value=code, name="code")
                                 each offre in figuration
                                     tr
-                                        td= offre.eventName
-                                        td= offre.description
-                                        td= offre.roleDemande
-                                        td= offre.nbFigurantDemande
-                                        td= offre.nbCandidatPostule
-                                        td
-                                            form(action="/postuler" method="post")  
+                                        form(action="/postuler" method="post")
+                                            input(type="hidden", value=offre.id, name="idOffre")
+                                            td= offre.eventName
+                                            input(type="hidden", value=offre.eventName, name="eventName")
+                                            input(type="hidden", value=offre.eventType, name="eventType")
+                                            input(type="hidden", value=offre.idEvenement, name="idEvenement")
+                                            td= offre.description
+                                            input(type="hidden", value=offre.description, name="description")
+                                            td= offre.roleDemande
+                                            input(type="hidden", value=offre.roleDemande, name="roleDemande")
+                                            td= offre.nbFigurantDemande
+                                            td= offre.nbCandidatPostule
+                                            if(code != '')
+                                                input(type="hidden", value=code, name="code")
+                                            td
                                                 input(type="submit" value="Postuler")
         // Footer
         footer#footer.wrapper.alt
