@@ -1,82 +1,83 @@
 extends layout
 block content
 
-      // Intro
-      section#acceuil.wrapper.style1.fullscreen.fade-up
-        .inner
-          h1 FaceCast
-          p
-            | La nouvelle plateforme te permettant  
-            br
-            | de postuler aux offres de FaceCast 
-            | .
-          ul.actions
-            li
-              a.button.scrolly(href='#offres') Voir les offres
-      // One
-      section#offres.wrapper.style2.spotlights
-        section
-          a.image(href='#')
-            img(src='images/pic01.jpg' alt='' data-position='center center')
-          .content
-            .inner
-                table.table
-                            thead
-                                tbody
-                                    each offre in figuration
-                                        tr
-                                            td= offre.eventName
-                                            td= offre.description
-                                            td= offre.roleDemande
-                                            td= offre.nbFigurantDemande
-                                            td= offre.nbCandidatPostule
-                ul.actions
-                    li
-                    if (code == '') 
-                        a.button(href='/connexion') Voir les offres
-                    else 
-                        a.button(href='/liste') Voir les offres
-      // Two
-      section#candidatures.wrapper.style3.fade-up
-        .inner
-          h2 Tes candidatures
-          p
-            | Regroupement des offres auxquelles vous avez postulé.
-          .features
-          each offre in reservationsUser
-            section
-              h3=offre.eventName
-              p
-                | Rôle demandé : !{offre.roleDemande}
-                br
-                | Description du rôle : !{offre.description}
-            .features  
+  // Intro
+  section#acceuil.wrapper.style1.fullscreen.fade-up
+    .inner
+      h1 FaceCast
+      p
+        | La nouvelle plateforme te permettant  
+        br
+        | de postuler aux offres de FaceCast 
+        | .
+      ul.actions
+        li
+          a.button.scrolly(href='#offres') Voir les offres
 
-      
-      // Three
-      if (code == '')
-        section#connexion.wrapper.style2.spotlights
-          .inner
-              h1 Connexion
-              form(action='/connexion' method='post')
-                div.field
-                  label.label Votre code d'identification
-                  div.control
-                    input(class='input' type='text' name='code' placeholder='Entrez votre code')
-                    p(class='help is-danger')= message
-                div(class='field is-grouped')
-                  div.control
-                    input(type='submit' value='S\'enregistrer' class='button is-link')
-      else 
-        section#deconnexion.wrapper.style2.spotlights
-          .inner
-            a.button(href='/deconnexion') Déconnexion
-      // Footer
-      footer#footer.wrapper.style1-alt
-        .inner
-          ul.menu
-            li © Untitled. All rights reserved.
-            li
-              | Design: 
-              a(href='http://html5up.net') HTML5 UP
-    
+  // Three
+  if (code == '')
+    section#connexion.wrapper.style1-alt.fullscreen.fade-up
+      .inner
+        h1 Connexion
+        form(action='/connexion' method='post')
+          div.field
+            label.label Votre code d'identification
+            div.control
+              input(class='input' type='text' name='code' placeholder='Entrez votre code')
+              p(class='help is-danger')= message
+          div(class='field is-grouped')
+            div.control
+              input(type='submit' value='S\'enregistrer' class='button is-link')
+  else 
+    section#profil.wrapper.style1-alt.fullscreen.fade-up
+      .inner
+        a.button(href='/deconnexion') Déconnexion
+  // One
+  section#offres.wrapper.style2.fullscreen.fade-up
+    .inner
+      h2 Les meilleurs offres du moment
+      .features
+      table.table
+        thead
+          tbody
+            each offre in figuration
+              tr
+                form(action="/postuler" method="post")
+                  input(type="hidden", value=offre.id, name="idOffre")
+                  td= offre.eventName
+                  input(type="hidden", value=offre.eventName, name="eventName")
+                  input(type="hidden", value=offre.eventType, name="eventType")
+                  input(type="hidden", value=offre.idEvenement, name="idEvenement")
+                  td= offre.description
+                  input(type="hidden", value=offre.description, name="description")
+                  td= offre.roleDemande
+                  input(type="hidden", value=offre.roleDemande, name="roleDemande")
+
+                  if(code != '')
+                    input(type="hidden", value=code, name="code")
+                  td
+                    input(type="submit" value="Postuler")
+      ul.actions
+        li
+        if (code == '') 
+          a.button(href='/connexion') Voir les offres
+        else 
+          a.button(href='/liste') Voir les offres
+  // Two
+  section#candidatures.wrapper.style2-alt.fullscreen.fade-up
+    .inner
+      h2 Tes candidatures
+      p
+        | Regroupement des offres auxquelles tu as postulé.
+      .features
+      each offre in reservationsUser
+        section
+          h3=offre.eventName
+          p
+            | Rôle demandé : !{offre.roleDemande}
+            br
+            | Description du rôle : !{offre.description}
+        .features  
+
+
+

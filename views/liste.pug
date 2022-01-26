@@ -15,55 +15,39 @@ html
         // Header
         header#header
             a.title(href="/") FaceCast
-            nav
-                ul
-                    li
-                        a(href='/') Accueil
-                    //- li
-                    //-     a.active(href='/#offre') Offres
-                    //- li
-                    //-     a(href='elements.html') Elements
-                    
-        section.section
-            div.container
-                    p Liste des offres de figuration disponibles :   
-                    table.table
-                        thead
-                            tr
-                                th Titre
-                                th Description
-                                th Role demandé
-                                th Nombre figurant demandé
-                                th Nombre candadidat ayant postulé
 
-                            tbody
-                                input(type="text", value=code, name="code")
-                                each offre in figuration
-                                    tr
-                                        form(action="/postuler" method="post")
-                                            input(type="hidden", value=offre.id, name="idOffre")
-                                            td= offre.eventName
-                                            input(type="hidden", value=offre.eventName, name="eventName")
-                                            input(type="hidden", value=offre.eventType, name="eventType")
-                                            input(type="hidden", value=offre.idEvenement, name="idEvenement")
-                                            td= offre.description
-                                            input(type="hidden", value=offre.description, name="description")
-                                            td= offre.roleDemande
-                                            input(type="hidden", value=offre.roleDemande, name="roleDemande")
-                                            td= offre.nbFigurantDemande
-                                            td= offre.nbCandidatPostule
-                                            if(code != '')
-                                                input(type="hidden", value=code, name="code")
-                                            td
-                                                input(type="submit" value="Postuler")
-        // Footer
-        footer#footer.wrapper.alt
-            .inner
-                ul.menu
-                    li HPR Inc. All rights reserved.
-                    li
-                        | Design: 
-                        a(href='http://html5up.net') HTML5 UP
+        section#table.wrapper.style2.fullscreen.table
+                table.table
+                    thead
+                        tr
+                            th Titre
+                            th Description
+                            th Role demandé
+                            th Nombre figurant demandé
+                            th Nombre candadidat ayant postulé
+
+                        tbody
+                            //input(type="text", value=code, name="code")
+                            each offre in figuration
+                                tr
+                                    form(action="/postuler" method="post")
+                                        input(type="hidden", value=offre.id, name="idOffre")
+                                        td= offre.eventName
+                                        input(type="hidden", value=offre.eventName, name="eventName")
+                                        input(type="hidden", value=offre.eventType, name="eventType")
+                                        input(type="hidden", value=offre.idEvenement, name="idEvenement")
+                                        td= offre.description
+                                        input(type="hidden", value=offre.description, name="description")
+                                        td= offre.roleDemande
+                                        input(type="hidden", value=offre.roleDemande, name="roleDemande")
+                                        td= offre.nbFigurantDemande
+                                        td= offre.nbCandidatPostule
+                                        input(type="hidden", value=offre.nbCandidatPostule, name="nbCandidatPostule")
+                                        if(code != '')
+                                            input(type="hidden", value=code, name="code")
+                                        td
+                                            input(type="submit" value="Postuler")
+
         // Scripts
         script(src='assets/js/jquery.min.js')
         script(src='assets/js/jquery.scrollex.min.js')
