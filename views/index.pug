@@ -36,68 +36,21 @@ block content
                         a.button(href='/connexion') Voir les offres
                     else 
                         a.button(href='/liste') Voir les offres
-        section
-          a.image(href='#')
-            img(src='images/pic02.jpg' alt='' data-position='top center')
-          .content
-            .inner
-              h2 Feugiat consequat
-              p
-                | Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.
-              ul.actions
-                li
-                  a.button(href='generic.html') Learn more
-        section
-          a.image(href='#')
-            img(src='images/pic03.jpg' alt='' data-position='25% 25%')
-          .content
-            .inner
-              h2 Ultricies aliquam
-              p
-                | Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.
-              ul.actions
-                li
-                  a.button(href='generic.html') Learn more
       // Two
       section#candidatures.wrapper.style3.fade-up
         .inner
           h2 Tes candidatures
           p
-            | Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.
+            | Regroupement des offres auxquelles vous avez postulé.
           .features
+          each offre in reservationsUser
             section
-              span.icon.solid.major.fa-code
-              h3 Lorem ipsum amet
+              h3=offre.eventName
               p
-                | Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.
-            section
-              span.icon.solid.major.fa-lock
-              h3 Aliquam sed nullam
-              p
-                | Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.
-            section
-              span.icon.solid.major.fa-cog
-              h3 Sed erat ullam corper
-              p
-                | Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.
-            section
-              span.icon.solid.major.fa-desktop
-              h3 Veroeros quis lorem
-              p
-                | Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.
-            section
-              span.icon.solid.major.fa-link
-              h3 Urna quis bibendum
-              p
-                | Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.
-            section
-              span.icon.major.fa-gem
-              h3 Aliquam urna dapibus
-              p
-                | Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.
-          ul.actions
-            li
-              a.button(href='generic.html') Learn more
+                | Rôle demandé : !{offre.roleDemande}
+                br
+                | Description du rôle : !{offre.description}
+            .features  
 
       
       // Three
