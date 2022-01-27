@@ -18,18 +18,16 @@ html
       .inner
         nav
           ul
+            li
+              a(href='#acceuil') Acceuil
             if (code == '') 
               li
                 a(href='#connexion') Connexion
             else
               li
-                p= code
-              li
-                a(href='#deconnexion') Déconnexion
+                a(href='#profil') Profil
             li
-              a(href='#acceuil') Acceuil
-            li
-              a(href='#offres') Les offres 
+             a(href='#offres') Les offres 
             li
               a(href='#candidatures') Tes candidatures
             
