@@ -16,7 +16,7 @@ html
         header#header
             a.title(href="/") FaceCast
 
-        section#table.wrapper.style2.fullscreen.table
+        section#table.wrapper.style1.fullscreen.table
                 table.table
                     thead
                         tr
@@ -27,7 +27,6 @@ html
                             th Nombre candadidat ayant postulé
 
                         tbody
-                            //input(type="text", value=code, name="code")
                             each offre in figuration
                                 tr
                                     form(action="/postuler" method="post")
