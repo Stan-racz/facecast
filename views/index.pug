@@ -31,7 +31,17 @@ block content
   else 
     section#profil.wrapper.style1-alt.fullscreen.fade-up
       .inner
-        a.button(href='/deconnexion') Déconnexion
+        h2 Bienvenue, utilisateur !{code}
+        if(information != [])
+          each information in infoUser
+            p 
+              | Nom : !{information.name}
+              br
+              | Numéro de téléphone : !{information.phoneNumber}
+            a.button(href='/deconnexion') Déconnexion
+          
+
+
   // One
   section#offres.wrapper.style2.fullscreen.fade-up
     .inner
@@ -52,7 +62,7 @@ block content
                   input(type="hidden", value=offre.description, name="description")
                   td= offre.roleDemande
                   input(type="hidden", value=offre.roleDemande, name="roleDemande")
-
+                  input(type="hidden", value=offre.nbCandidatPostule, name="nbCandidatPostule")
                   if(code != '')
                     input(type="hidden", value=code, name="code")
                   td
